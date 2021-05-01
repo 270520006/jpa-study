@@ -30,6 +30,10 @@ public class Person implements Serializable {
     @Column(name = "age", nullable = true, length = 20)
     @TableField("age")
     private int age;
-    
+
+    @Column(name = "gender", nullable = false, length = 20 )
+    @TableField("gender")
+    private int gender=0;
+
 
 }
