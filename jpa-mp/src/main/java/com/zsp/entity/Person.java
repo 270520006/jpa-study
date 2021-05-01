@@ -1,29 +1,35 @@
 package com.zsp.entity;
 
-import com.baomidou.mybatisplus.annotation.Version;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import jdk.nashorn.internal.objects.annotations.Getter;
+import jdk.nashorn.internal.objects.annotations.Setter;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author zsp
- * @since 2021-05-01
- */
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
-@EqualsAndHashCode(callSuper = false)
 public class Person implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
+    @Id  //主键
+    @GeneratedValue //指定如何标识属性可以被初始化，例如自动、手动、或从序列表中获得的值。
+    @TableId(type = IdType.AUTO)
     private Long id;
-
-    private Integer userAge;
-
-    private String userName;
-
+    @Column(name = "name", nullable = true, length = 20)
+    @TableField("name")
+    private String name;
+    @Column(name = "age", nullable = true, length = 20)
+    @TableField("age")
+    private int age;
+    
 
 }
