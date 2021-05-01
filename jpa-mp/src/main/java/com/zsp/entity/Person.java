@@ -31,9 +31,13 @@ public class Person implements Serializable {
     @TableField("age")
     private int age;
 
-    @Column(name = "gender", nullable = false, length = 20 )
+    @Column(name = "gender", nullable = false, length = 20 ,columnDefinition = "COMMENT '这是性别'")
     @TableField("gender")
     private int gender=0;
+
+    @Column(name = "classroom", nullable = false ,columnDefinition = "varchar(200) COMMENT '班级'")
+    @TableField("classroom")
+    private String classroom="1班";
 
 
 }
